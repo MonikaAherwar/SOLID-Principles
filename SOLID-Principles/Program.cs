@@ -15,45 +15,19 @@ namespace SOLID_Principles
             Console.WriteLine("");
 
             // Single Responsibility Principle
-            SingleResponsibilityPrinciple.SingleResponsibilityPrinciple srp = new SingleResponsibilityPrinciple.SingleResponsibilityPrinciple();
-            srp.Problem();
-            srp.Solution();
+            SingleResponsibilityPrinciple();
 
             // Open Close Principle
-            var drawing = new Drawing();
-            drawing.AddShape(new Rectangle(5, 4));
-            drawing.AddShape(new Circle(3));
-
-            double totalArea = drawing.CalculateTotalArea();
-            Console.WriteLine($"Total Area: {totalArea}");
+            OpenClosePrincipl();
 
             // Liskov's Substitution Principle
-            Bird sparrow = new Bird();
-            Bird ostrich = new Ostrich();
-
-            BirdFly.MakeBirdFly(sparrow); // Outputs: "A bird can fly."
-            BirdFly.MakeBirdFly(ostrich); // Outputs: "An ostrich cannot fly."
-
-            // The Liskov Substitution Principle allows us to use an Ostrich
-            // (derived class) in place of a Bird (base class) without issues.
-
-            Ostrich newOstrich = new Ostrich();
-            newOstrich.Run(); // Outputs: "An ostrich can run fast."
-
-            // We can still access the unique method of the Ostrich class.
+            LiskovSubstitutionPrinciple();
 
             // Interface Segregation Priciple
-            // Example here
+            InterfaceSegregationPriciple();
 
             // Dependency Inversion Principle
-            IMessageSender emailSender = new EmailSender();
-            IMessageSender smsSender = new SMSSender();
-
-            NotificationService emailNotification = new NotificationService(emailSender);
-            NotificationService smsNotification = new NotificationService(smsSender);
-
-            emailNotification.SendNotification("Hello, this is an email notification.");
-            smsNotification.SendNotification("Hello, this is an SMS notification.");
+            DependencyInversionPrinciple();
         }
 
         private static void SingleResponsibilityPrinciple()
